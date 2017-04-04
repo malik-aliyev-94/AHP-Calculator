@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/bootstrap/custom.min.css">
+    <link rel="stylesheet" href="./assets/alert/css/lobibox.min.css">
+    <link rel="stylesheet" href="./assets/orgchart/css/jquery.orgchart.css">
+    <link rel="stylesheet" href="./assets/json/css/jjsonviewer.css">
+    <link rel="stylesheet" href="./assets/styles/app.css">
+    <title>AHP</title>
+</head>
+
+<body>
+
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Title</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group add-root-alternative">
+                        <label class="control-label">Label</label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="close-modal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="save">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="./index.html" class="navbar-brand">AHP</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Help</a>
+                    </li>
+                    <li>
+                        <a href="#">Screenshots</a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" target="_blank">GitHub</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h1>AHP Calculator</h1>
+                    <p class="lead">Multicriterial Decision Making</p>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-info">
+                    <p>You must define as minimum 2 alternatives and 2 criterias.</p>
+                </div>
+            </div>
+        </div>-->
+        <!-- Step 1 -->
+        <div class="step" id="step-1">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">Goal</label>
+                        <input type="text" class="form-control" value="Goal" id="goal">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Criterias</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul id="criterias">
+                                <li data-id="c-root" data-value="Goal">
+                                    <span class="main">
+                                        <span class="name">Goal</span>
+                                        <span class="buttons">
+                                            <a href="#" class="add-child" data-toggle='modal' data-target='#modal' data-criteria="c-root"><i class="fa fa-plus"></i></a>
+                                        </span>
+                                    </span>
+
+                                    <!--<ul><li data-id="c-3z3bpd" data-value="Financial"><span class="main"><span class="name">Financial</span><span class="buttons"><a href="#" data-criteria="c-3z3bpd" class="add-child" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i></a><a href="#" data-criteria="c-3z3bpd" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-criteria="c-3z3bpd" class="remove"><i class="fa fa-times"></i></a></span></span><ul><li data-id="c-kho6k" data-value="f1"><span class="main"><span class="name">f1</span><span class="buttons"><a href="#" data-criteria="c-kho6k" class="add-child" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i></a><a href="#" data-criteria="c-kho6k" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-criteria="c-kho6k" class="remove"><i class="fa fa-times"></i></a></span></span></li><li data-id="c-pd54wr" data-value="f3"><span class="main"><span class="name">f3</span><span class="buttons"><a href="#" data-criteria="c-pd54wr" class="add-child" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i></a><a href="#" data-criteria="c-pd54wr" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-criteria="c-pd54wr" class="remove"><i class="fa fa-times"></i></a></span></span></li><li data-id="c-ga7lj" data-value="f4"><span class="main"><span class="name">f4</span><span class="buttons"><a href="#" data-criteria="c-ga7lj" class="add-child" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i></a><a href="#" data-criteria="c-ga7lj" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-criteria="c-ga7lj" class="remove"><i class="fa fa-times"></i></a></span></span></li></ul></li><li data-id="c-lt4dwe" data-value="Non-financial"><span class="main"><span class="name">Non-financial</span><span class="buttons"><a href="#" data-criteria="c-lt4dwe" class="add-child" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i></a><a href="#" data-criteria="c-lt4dwe" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-criteria="c-lt4dwe" class="remove"><i class="fa fa-times"></i></a></span></span><ul><li data-id="c-bi214l" data-value="f2"><span class="main"><span class="name">f2</span><span class="buttons"><a href="#" data-criteria="c-bi214l" class="add-child" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i></a><a href="#" data-criteria="c-bi214l" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-criteria="c-bi214l" class="remove"><i class="fa fa-times"></i></a></span></span></li><li data-id="c-0uwukj" data-value="f5"><span class="main"><span class="name">f5</span><span class="buttons"><a href="#" data-criteria="c-0uwukj" class="add-child" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i></a><a href="#" data-criteria="c-0uwukj" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-criteria="c-0uwukj" class="remove"><i class="fa fa-times"></i></a></span></span></li></ul></li></ul>-->
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Alternatives</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul id="alternatives">
+
+                                <!--<li data-id="a-iffper" data-value="a1"><span class="name">a1</span><span class="buttons"><a href="#" data-alt="a-iffper" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-alt="a-iffper" class="remove"><i class="fa fa-times"></i></a></span></li><li data-id="a-i98f3n" data-value="a2"><span class="name">a2</span><span class="buttons"><a href="#" data-alt="a-i98f3n" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-alt="a-i98f3n" class="remove"><i class="fa fa-times"></i></a></span></li><li data-id="a-32mwc5" data-value="a3"><span class="name">a3</span><span class="buttons"><a href="#" data-alt="a-32mwc5" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-alt="a-32mwc5" class="remove"><i class="fa fa-times"></i></a></span></li><li data-id="a-i11zc" data-value="a4"><span class="name">a4</span><span class="buttons"><a href="#" data-alt="a-i11zc" class="edit" data-toggle="modal" data-target="#modal"><i class="fa fa-edit"></i></a><a href="#" data-alt="a-i11zc" class="remove"><i class="fa fa-times"></i></a></span></li>-->
+
+                            </ul>
+                            <div class="form-group add-root-alternative">
+                                <label class="control-label">Alternative</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">Add</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">AHP hierarchy</h3>
+                        </div>
+                        <div class="panel-body" style="padding: 0;">
+                            <div id="chart-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"><h3>Criterias</h3></div>
+                <div class="col-md-12" id="tables">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"><h3>Local and global weights</h3></div>
+                <div class="col-md-12" id="weights">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>Local w</th>
+                                <th>Global w</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"><h3>Alternatives</h3></div>
+                <div class="col-md-12" id="alternatives-weights">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"><h3>Result</h3></div>
+                <div class="col-md-12" id="ahp-result">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="chart">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- / Step 1 -->
+    </div>
+
+
+    <script src="./assets/scripts/jquery.min.js"></script>
+    <script src="./assets/bootstrap/bootstrap.min.js"></script>
+    <script src="./assets/alert/js/lobibox.min.js"></script>
+    <script src="./assets/orgchart/js/jquery.orgchart.js"></script>
+    <script src="./assets/json/js/jjsonviewer.js"></script>
+    <script src="./assets/scripts/functions.js"></script>
+    <script src="./assets/export/jspdf.debug.js"></script>
+    <script src="./assets/scripts/app.js"></script>
+</body>
+
+</html>

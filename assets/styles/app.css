@@ -1,0 +1,144 @@
+#alternatives {
+    width: 100%;
+}
+
+#alternatives tbody tr td:last-child {
+    text-align: right;
+}
+
+.orgchart .node .title {
+    border-radius: 0 !important;
+    height: auto !important;
+    padding: 10px;
+}
+
+#chart-container {
+    overflow: hidden;
+}
+
+.orgchart {
+    background-image: none !important;
+}
+
+.oc-export-btn {
+    position: static;
+}
+
+#result {
+    text-align: center;
+}
+
+.actions {
+    text-align: center;
+}
+
+.step {
+    display: none;
+    margin-bottom: 40px;
+}
+
+#step-1 {
+    display: block;
+}
+
+.show {
+    display: inline-block;
+}
+
+.hide {
+    display: none;
+}
+
+.data-table td {
+    border: 1px solid #000;
+    text-align: center;
+    min-width: 60px;
+    height: 40px;
+}
+
+.data-table td select {
+    border: none;
+    background: none;
+    height: 40px;
+    width: 100%;
+}
+
+.data-table-cell-diagonal {
+    background: #18BC9C;
+    color: #fff;
+}
+
+.data-table-cell-disabled {
+    background: #95A5A6;
+    color: #fff;
+}
+
+.data-table-cell-h,
+.data-table-cell--result-h {
+    font-weight: bold;
+    text-align: left;
+    background: #F39C12;
+    padding: 0 10px;
+}
+
+.data-table-cell-result-h {
+    background: #3498DB;
+    color: #fff;
+}
+
+.data-table-cell-result {
+    background: #7CBCE8;
+    color: #000;
+}
+
+.data-table-cell-hh {
+    font-weight: bold;
+    text-align: left;
+    background: none;
+    padding: 0 10px;
+}
+#chart {
+    text-align: center;
+}
+.chart-container {
+    margin-top: 40px;
+    box-sizing: border-box;
+    padding: 120px 40px 0 40px;
+    background: #f2f2f2;
+    text-align: center;
+    font-size: 0;
+    display: inline-block;
+    letter-spacing: -0.31em;
+    max-width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+}
+.chart-container>div {
+    display: inline-block;
+    width: 100px;
+    background: #333;
+    border-right: 3px solid #f2f2f2;
+    vertical-align: bottom;
+    text-align: center;
+}
+.chart-container>div .name,
+.chart-container>div .value {
+    margin-top: -80px;
+    font-size: 14px;
+    letter-spacing: normal;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+.chart-container>div .value {
+    margin-top: 10px;
+    color: green;
+}
+#tables>div,
+#alternatives-weights>div {
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top;
+}
